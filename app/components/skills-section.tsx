@@ -46,9 +46,9 @@ const skillCategories = [
   {
     name: "Animation Library",
     skills: [
-      { name: "AOS", logo: "/logos/shadcn.png" },
-      { name: "GSAP", logo: "/logos/antd.svg" },
-      { name: "Framer Motion", logo: "/logos/heroui.png" },
+      { name: "AOS", logo: "/logos/aos.png" },
+      { name: "GSAP", logo: "/logos/gsap.jpg" },
+      { name: "Framer Motion", logo: "/logos/framer.png" },
     ],
   },
 ];
@@ -65,13 +65,15 @@ export default function SkillsSection() {
             <div className="flex flex-wrap gap-4">
               {category.skills.map((skill, skillIndex) => (
                 <div key={skillIndex} className="flex items-center gap-2">
-                  <Image
-                    className="rounded"
-                    src={skill.logo || "/placeholder.svg"}
-                    alt={skill.name}
-                    width={24}
-                    height={24}
-                  />
+                  {skill?.logo && (
+                    <Image
+                      className="rounded"
+                      src={skill.logo || "/placeholder.svg"}
+                      alt={skill.name}
+                      width={24}
+                      height={24}
+                    />
+                  )}
                   <span>{skill.name}</span>
                 </div>
               ))}

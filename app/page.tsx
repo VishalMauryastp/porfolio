@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Github, Linkedin, Mail, Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { PROJECTS } from "../lib/data";
@@ -77,7 +78,7 @@ export default function Home() {
       <main className="max-w-4xl mx-auto px-4 py-12">
         <section
           id="home"
-          className="flex scroll-mt-28 flex-col md:flex-row items-start justify-between gap-12 mb-20"
+          className="flex scroll-mt-28 flex-col md:flex-row items-center justify-between gap-12 mb-20"
         >
           <div>
             <h1 className="text-4xl font-bold mb-4">
@@ -88,14 +89,22 @@ export default function Home() {
               Next.js, dedicated to building innovative, high-performance web
               and mobile applications.
             </p>
-            <div className="flex gap-4">
-              <Button asChild variant="outline">
+            <div className="flex gap-0 max-sm:justify-between sm:gap-4">
+              <Button
+                asChild
+                variant="outline"
+                className="max-sm:h-8 max-sm:rounded-md max-sm:px-3 max-sm:text-sm"
+              >
                 <Link href="https://github.com/VishalMauryastp" target="_blank">
                   <Github className="mr-2 h-4 w-4" />
                   Github
                 </Link>
               </Button>
-              <Button asChild variant="outline">
+              <Button
+                asChild
+                variant="outline"
+                className="max-sm:h-8 max-sm:rounded-md max-sm:px-3 max-sm:text-sm"
+              >
                 <Link
                   href="https://www.linkedin.com/in/in-vishalmaurya/"
                   target="_blank"
@@ -104,7 +113,11 @@ export default function Home() {
                   LinkedIn
                 </Link>
               </Button>
-              <Button asChild variant="outline">
+              <Button
+                asChild
+                variant="outline"
+                className="max-sm:h-8 max-sm:rounded-md max-sm:px-3 max-sm:text-sm"
+              >
                 <Link href="mailto:vishalmauryaab@gmail.com">
                   <Mail className="mr-2 h-4 w-4" />
                   Email
@@ -112,16 +125,13 @@ export default function Home() {
               </Button>
             </div>
           </div>
-          <div className="relative w-48 h-48 rounded-full overflow-hidden shrink-0">
-            {
-              // eslint-disable-next-line @next/next/no-img-element
-            }{" "}
-            <img
-              src="https://avatars.githubusercontent.com/u/111357844?v=4"
+          <div className="relative w-64 h-64 rounded-full overflow-hidden shrink-0">
+            <Image
+              src="/avtaar.png"
               alt="Profile"
-              className="object-cover"
-              width={192}
-              height={192}
+              className="object-contain"
+              width={292}
+              height={292}
             />
           </div>
         </section>

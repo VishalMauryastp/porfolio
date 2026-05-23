@@ -3,12 +3,27 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 export default function WorkTimeline() {
   const experiences = [
     {
-      company: "SIB Infotech",
+      company: "Aiqwip Technologies Private Limited",
       jobType: "On-site",
       roles: [
         {
-          title: "Web Developer(MERN)",
-          period: "May 2024 - Present",
+          title: "Software Engineer",
+          period: "May 2025 - Present",
+          description: [
+            "Building AI-driven applications using React.js / Next.js with Django and FastAPI",
+            "Designing scalable backend systems for AI workflows",
+            "Collaborating cross-functionally to deliver production-grade AI solutions",
+          ],
+        },
+      ],
+    },
+    {
+      company: "SIB Infotech Pvt. Ltd.",
+      jobType: "On-site",
+      roles: [
+        {
+          title: "Web Developer (MERN)",
+          period: "May 2024 - May 2025",
           description: [
             "Architected and developed full-stack applications using MERN stack",
             "Improved system performance by 40% through optimization techniques",
@@ -24,7 +39,7 @@ export default function WorkTimeline() {
       jobType: "On-site",
       roles: [
         {
-          title: "Website Developer",
+          title: "Website Developer (Full Stack Developer)",
           period: "November 2023 - May 2024",
           description: [
             "Built responsive UIs with Nextjs, React.js and Tailwind CSS",
@@ -40,8 +55,8 @@ export default function WorkTimeline() {
       jobType: "Remote",
       roles: [
         {
-          title: "Fullstack Developer",
-          period: "June 2023 - November 2023",
+          title: "Full Stack Developer",
+          period: "Jan 2023 - November 2023",
           description: [
             "Developed and maintained MERN stack applications",
             "Increased user engagement by 30% through UI/UX improvements",
@@ -64,7 +79,7 @@ export default function WorkTimeline() {
             <div className="relative border-l border-muted-foreground/20 pl-6 ml-2">
               {exp.roles.map((role, roleIndex) => (
                 <div key={roleIndex} className="pb-8 last:pb-0">
-                  <div className="absolute w-3 h-3 bg-primary rounded-full -left-[0.4rem]"></div>
+                  <div className="absolute w-3 h-3 bg-primary rounded-full left-[-0.4rem]"></div>
                   <h3 className="text-lg font-semibold -translate-y-2">
                     {role.title}
                   </h3>

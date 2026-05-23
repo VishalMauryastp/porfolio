@@ -85,9 +85,10 @@ export default function Home() {
               Hi Vishal here <WavingHand />
             </h1>
             <p className="text-lg text-muted-foreground mb-6 max-w-[480px]">
-              Full Stack Web Developer specializing in the MERN stack and
-              Next.js, dedicated to building innovative, high-performance web
-              and mobile applications.
+              Full-stack developer with 3+ years of experience building SaaS
+              web applications end-to-end — frontend, backend, database, and
+              deployment. Comfortable with React.js, Next.js, Node.js, and
+              Python FastAPI, and currently upskilling in Generative AI.
             </p>
             <div className="flex gap-0 max-sm:justify-between sm:gap-4">
               <Button
@@ -158,39 +159,19 @@ export default function Home() {
 
         <section id="projects" className="mb-20  scroll-mt-20">
           <h2 className="text-2xl font-bold mb-8">Featured Projects</h2>
-          <Tabs defaultValue={PROJECTS[0]?.title} className="w-full">
-            <TabsList className="grid w-full grid-cols-2 mb-8">
-              {PROJECTS.map((project, i) => {
-                return (
-                  <TabsTrigger key={i} value={project?.title}>
-                    {project?.title}
-                  </TabsTrigger>
-                );
-              })}
-            </TabsList>
-            {PROJECTS.map((project, i) => {
-              return (
-                <TabsContent
-                  key={i}
-                  value={project?.title}
-                  className="space-y-6"
-                >
-                  {project?.data?.map((item, j) => {
-                    return (
-                      <ProjectCard
-                        key={j}
-                        title={item?.title}
-                        description={item.description}
-                        link={item.link}
-                        technologies={item?.tech}
-                        organization={item?.organization}
-                      />
-                    );
-                  })}
-                </TabsContent>
-              );
-            })}
-          </Tabs>
+          <div className="space-y-6">
+            {PROJECTS.flatMap((project) =>
+              project?.data?.map((item, j) => (
+                <ProjectCard
+                  key={`${project.title}-${j}`}
+                  title={item?.title}
+                  description={item.description}
+                  link={item.link}
+                  technologies={item?.tech}
+                />
+              ))
+            )}
+          </div>
         </section>
 
         <section id="contact" className="mb-20  scroll-mt-20">
@@ -206,7 +187,7 @@ export default function Home() {
       </main>
 
       <footer className="border-t py-6">
-        <div className="max-w-[768px] mx-auto px-4 text-center text-sm text-muted-foreground">
+        <div className="max-w-3xl mx-auto px-4 text-center text-sm text-muted-foreground">
           © 2025 Vishal Maurya . All rights reserved.
         </div>
       </footer>

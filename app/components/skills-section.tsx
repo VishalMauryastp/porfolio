@@ -1,54 +1,83 @@
 import Image from "next/image";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Cloud,
+  KeyRound,
+  ShieldCheck,
+  type LucideIcon,
+} from "lucide-react";
 
-const skillCategories = [
+type Skill = {
+  name: string;
+  logo?: string;
+  Icon?: LucideIcon;
+};
+
+const skillCategories: { name: string; skills: Skill[] }[] = [
   {
-    name: "Front-End Design",
+    name: "Front-End",
     skills: [
       { name: "Next.js", logo: "/logos/next.png" },
-      { name: "React", logo: "/logos/react.svg" },
-      { name: "Vite", logo: "/logos/vite.svg" },
+      { name: "React.js", logo: "/logos/react.svg" },
+      { name: "TanStack Start", logo: "/logos/tanstack.svg" },
+      { name: "Redux", logo: "/logos/redux.svg" },
       { name: "Tailwind CSS", logo: "/logos/tailwind.svg" },
+      { name: "JavaScript (ES6+)", logo: "/logos/javascript.svg" },
+      { name: "Bootstrap", logo: "/logos/bootstrap.svg" },
     ],
   },
-
   {
     name: "Back-End",
     skills: [
+      { name: "FastAPI", logo: "/logos/python.svg" },
+      { name: "Django", logo: "/logos/django.svg" },
       { name: "Node.js", logo: "/logos/nodejs.svg" },
       { name: "Express.js", logo: "/logos/expressjs.png" },
-      { name: "Laravel", logo: "/logos/laravel.png" },
+      { name: "RESTful APIs", logo: "/logos/api.svg" },
+      { name: "WebSockets", logo: "/logos/socketdotio.svg" },
+    ],
+  },
+  {
+    name: "Authentication",
+    skills: [
+      { name: "JWT", logo: "/logos/jwt.svg" },
+      { name: "OAuth", logo: "/logos/auth0.svg" },
+      { name: "Next-Auth", Icon: ShieldCheck },
+      { name: "BetterAuth", Icon: KeyRound },
     ],
   },
   {
     name: "Database",
     skills: [
       { name: "MongoDB", logo: "/logos/mongodb.svg" },
-      { name: "MySQL", logo: "/logos/mysql.png" },
+      { name: "MySQL", logo: "/logos/mysql.svg" },
+      { name: "PostgreSQL", logo: "/logos/postgresql.svg" },
     ],
   },
   {
-    name: "Application Development",
+    name: "Development & Cloud",
     skills: [
-      { name: "React", logo: "/logos/react.svg" },
-      { name: "React Native", logo: "/logos/react.svg" },
-      { name: "Expo", logo: "/logos/expo.png" },
+      { name: "AWS EC2", Icon: Cloud },
+      { name: "Git", logo: "/logos/git.svg" },
+      { name: "GitHub Actions", logo: "/logos/githubactions.svg" },
+      { name: "Digital Ocean", logo: "/logos/digitalocean.svg" },
+      { name: "Azure", Icon: Cloud },
     ],
   },
   {
-    name: "UI Library",
+    name: "UI Libraries",
     skills: [
-      { name: "shadcn/ui", logo: "/logos/shadcn.png" },
+      { name: "ShadCN", logo: "/logos/shadcn.svg" },
       { name: "Ant Design", logo: "/logos/antd.svg" },
-      { name: "Heroui", logo: "/logos/heroui.png" },
+      { name: "NextUI", logo: "/logos/nextui.svg" },
     ],
   },
   {
-    name: "Animation Library",
+    name: "Generative AI",
     skills: [
-      { name: "AOS", logo: "/logos/aos.png" },
-      { name: "GSAP", logo: "/logos/gsap.jpg" },
-      { name: "Framer Motion", logo: "/logos/framer.png" },
+      { name: "OpenAI", logo: "/logos/OpenAI_Logo.svg" },
+      { name: "Google Gemini", logo: "/logos/Google_Gemini_logo.svg" },
+      { name: "LangChain", logo: "/logos/langchain-logo.svg" },
     ],
   },
 ];
@@ -65,15 +94,17 @@ export default function SkillsSection() {
             <div className="flex flex-wrap gap-4">
               {category.skills.map((skill, skillIndex) => (
                 <div key={skillIndex} className="flex items-center gap-2">
-                  {skill?.logo && (
+                  {skill.logo ? (
                     <Image
-                      className="rounded"
-                      src={skill.logo || "/placeholder.svg"}
+                      className="rounded dark:invert-[.15]"
+                      src={skill.logo}
                       alt={skill.name}
                       width={24}
                       height={24}
                     />
-                  )}
+                  ) : skill.Icon ? (
+                    <skill.Icon className="w-5 h-5 text-primary" />
+                  ) : null}
                   <span>{skill.name}</span>
                 </div>
               ))}

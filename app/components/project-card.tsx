@@ -12,7 +12,6 @@ interface ProjectCardProps {
   description: string;
   link?: string;
   technologies: string[];
-  organization?: string | undefined;
 }
 
 const techLogos: { [key: string]: string } = {
@@ -42,7 +41,6 @@ export default function ProjectCard({
   description,
   link,
   technologies,
-  organization,
 }: ProjectCardProps) {
   return (
     <motion.div
@@ -64,13 +62,6 @@ export default function ProjectCard({
           </CardHeader>
           <CardContent>
             <p className="text-muted-foreground mb-4">{description}</p>
-
-            {organization && (
-              <p className="text-sm font-medium mb-4">
-                <span className="text-primary">Organization:</span>{" "}
-                {organization}
-              </p>
-            )}
 
             <div className="flex flex-wrap gap-2">
               {technologies.map((tech) => (

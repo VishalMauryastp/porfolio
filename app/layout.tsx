@@ -6,7 +6,7 @@ import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
-const siteUrl = "https://vishalmaurya.dev";
+const siteUrl = "https://porfolio-sand-gamma.vercel.app/";
 const siteTitle =
   "Vishal Maurya - Full Stack Developer | Next.js, React, FastAPI & AI";
 const siteDescription =
